@@ -1,107 +1,19 @@
-# Grunt
-Grunt学习笔记
+/*------------ 申明es5严格模式 -------------*/
+'use strict';
 
-#### Tips
-git bash的上下选择和空格选中操作是有问题的，使用cmd是可以的
+/*------------ 基本框架 -------------*/
+module.exports = function(grunt){
+    /*------------ 引入组建 -------------*/
+    require('load-grunt-tasks')(grunt);
+    require('time-grunt')(grunt);
+    
+    /*------------ 配置项目路径 -------------*/
+    var config = {
+        app: 'app',
+        dist: 'dist'
+    }
 
-#### Yeoman
-在Web项目的立项阶段，使用yeoman来生成项目的文件，代码结构
-#### Yeoman 下载
-```
-npm install -g yo
-```
-查看版本
-```
-yo --version
-```
-
-#### Bower
-Web包管理器，下载需要引入的包
-#### Bower 下载
-```
-npm install -g bower
-```
-查看版本
-```
-bower -v
-```
-
-#### Grunt
-Build Tool，压缩、测试、校验代码等工具
-#### Grunt 下载
-```
-npm install -g grunt-cli
-```
-查看版本
-```
-grunt -version
-```
-
-
-#### yeoman generator
-安装生成器generator，使用npm命令，要安装的npm包前加入generator
-```
-npm install -g generator-anguler
-```
-使用yeoman的时候，生成的依赖包会安装到当前目录，所以先创建一个项目目录
-```
-yo generator的名字 项目名字
-```
-
-#### bower 使用
-```
-bower install jquery
-```
-* (jquery/jquery) 是jquery在github上的短写，如果bower没有收录想要下载的包，则可以使用github上的地址来下载
-```
-bower install jquery/jquery
-```
-* 也可以使用github的完整地址：https://github.com/jquery/jquery.git
-```
-bower install https://github.com/jquery/jquery.git
-```
-
-生成bower.json（git bash下会报错，可能是因为权限不够，可以使用cmd来生成）
-```
-bower init
-bower install jquery --save-dev 将jquery加入到开发环境中devDependencies
-bower install jquery --save 将jquery加入到生产环境中dependencies
-```
-
-#### 构建Grunt项目
-生成package.json
-```
-npm init
-```
-引入grunt，添加依赖到开发环境中
-```
-npm install grunt --save-dev
-```
-引入grunt插件load-grunt-tasks,time-grunt
-```
-npm install load-grunt-tasks --save-dev
-npm install time-grunt --save-dev
-```
-创建Gruntfile.js
-```
-vim Gruntfile.js
-```
-安装基本的task任务
-```
-npm install grunt-contrib-copy --save-dev  // 文件拷贝
-npm install grunt-contrib-clean --save-dev  // 文件删除
-```
-运行`copy`命令、`clean`命令
-```
-grunt copy  // 只写命令名则调用改命令下的所有target
-grunt clean
-
-grunt copy:dist_js  // 只调用一个命令中的其中一个target
-```
-
-#### Grunt Files的处理方式
-```
-/*------------ 任务配置 -------------*/
+    /*------------ 任务配置 -------------*/
     grunt.initConfig({
         config: config,
 
@@ -158,7 +70,7 @@ grunt copy:dist_js  // 只调用一个命令中的其中一个target
         clean: {
             dist: {
                 // src: ['<%= config.dist %>/index.html', '<%= config.dist %>/js/index.js']
-                src: '<%= config.dist %>/**/*',  // **匹配任意长度任意字符，*匹配任意长度字符除了反斜杠\，?匹配任意一个字符除了反斜杠，!取反
+                src: '<%= config.dist %>/**/*',  // **匹配任意长度任意字符，*匹配任意字符除了反斜杠\，?匹配任意一个字符除了反斜杠，!取反
                 // 过滤
                 filter: function(filepath){
                     return (!grunt.file.isDir(filepath)); // 保留文件夹
@@ -167,7 +79,4 @@ grunt copy:dist_js  // 只调用一个命令中的其中一个target
             }
         }
     });
-```
-
-#### Grunt tasks - grunt server
-
+}
