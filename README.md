@@ -7,7 +7,9 @@ git bash的上下选择和空格选中操作是有问题的，使用cmd是可以
 #### Yeoman
 在Web项目的立项阶段，使用yeoman来生成项目的文件，代码结构
 #### Yeoman 下载
-```npm install -g yo```
+```
+npm install -g yo
+```
 查看版本
 ```yo --version```
 
