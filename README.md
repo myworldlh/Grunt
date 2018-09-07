@@ -73,11 +73,11 @@ bower install jquery --save 将jquery加入到生产环境中dependencies
 ```
 npm init
 ```
-引入grunt，添加依赖到开发环境中
+下载grunt，添加依赖到开发环境中
 ```
 npm install grunt --save-dev
 ```
-引入grunt插件load-grunt-tasks,time-grunt
+下载grunt插件load-grunt-tasks,time-grunt
 ```
 npm install load-grunt-tasks --save-dev
 npm install time-grunt --save-dev
