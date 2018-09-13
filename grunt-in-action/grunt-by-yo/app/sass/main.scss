@@ -1,7 +1,13 @@
+@import 'compass';
+// @import 'bower_components/normalize-scss/sass/_normalize.scss';
+// @include normalize();
+.btn{
+  span{
+    @include inline-block;
+  }
+}
 $icon-font-path: '../fonts/';
-// bower:scss
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-// endbower
+@import '../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
 .browserupgrade {
   margin: 0.2em 0;

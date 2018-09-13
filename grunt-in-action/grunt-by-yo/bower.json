@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "normalize-scss": "normalize.scss#^7.0.1"
   }
 }
